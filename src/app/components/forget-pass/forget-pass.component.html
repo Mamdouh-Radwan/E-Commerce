@@ -1,0 +1,131 @@
+<section class="d-flex align-items-center justify-content-center" *ngIf="step1">
+    <form
+      class="bg-main-light p-4 mt-4 w-100"
+      [formGroup]="forgot"
+      (ngSubmit)="forgotPass()"
+    >
+      <label for="mail">Email :</label>
+      <input
+        type="email"
+        id="mail"
+        class="form-control"
+        formControlName="email"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          (forgot.get('email')?.touched || forgot.get('email')?.value != '') &&
+          forgot.get('email')?.errors
+        "
+      >
+        <p class="opacity-75" *ngIf="forgot.get('email')?.getError('required')">
+          Email is Required
+        </p>
+        <p class="opacity-75" *ngIf="forgot.get('email')?.getError('email')">
+          Please enter a valid email address
+        </p>
+      </div>
+  
+      <button
+        class="form-control btn-main w-50 mx-auto mt-4"
+        [disabled]="forgot.invalid"
+      >
+        Forget Password
+      </button>
+  
+      <p
+        *ngIf="userMsg"
+        class="alert my-2"
+        [class]="color ? 'alert-danger' : 'alert-success'"
+      >
+        {{ userMsg }}
+      </p>
+    </form>
+  </section>
+  
+  <!-- * -->
+  
+  <section class="d-flex align-items-center justify-content-center" *ngIf="step2">
+    <form
+      class="bg-main-light p-4 mt-4 w-100"
+      [formGroup]="resetCode"
+      (ngSubmit)="resetCod()"
+    >
+      <label for="resetCode">Reset Code </label>
+      <input
+        type="text"
+        id="resetCode"
+        class="form-control"
+        formControlName="resetCode"
+      />
+  
+      <button
+        class="form-control btn-main w-50 mx-auto mt-4"
+        [disabled]="resetCode.invalid"
+      >
+        Confirm
+      </button>
+  
+      <p
+        *ngIf="userMsg"
+        class="alert my-2"
+        [class]="color ? 'alert-danger' : 'alert-success'"
+      >
+        {{ userMsg }}
+      </p>
+    </form>
+  </section>
+  
+  <!-- * -->
+  
+  <section class="d-flex align-items-center justify-content-center" *ngIf="step3">
+    <form
+      class="bg-main-light p-4 mt-4 w-100"
+      (ngSubmit)="newPassword()"
+      [formGroup]="newPass"
+    >
+      <label for="newPass">Create a New Password </label>
+      <input
+        type="password"
+        id="newPass"
+        class="form-control"
+        formControlName="newPassword"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          (newPass.get('newPassword')?.touched ||
+            newPass.get('newPassword')?.value != '') &&
+          newPass.get('newPassword')?.errors
+        "
+      >
+        <p
+          class="opacity-75"
+          *ngIf="newPass.get('newPassword')?.getError('pattern')"
+        >
+          Password must be atleast 6 chars
+        </p>
+        <p
+          class="opacity-75"
+          *ngIf="newPass.get('newPassword')?.getError('required')"
+        >
+          Password is required
+        </p>
+      </div>
+  
+      <button
+        class="form-control btn-main w-50 mx-auto mt-4"
+        [disabled]="newPass.invalid"
+      >
+        Confirm
+      </button>
+      <p
+        *ngIf="userMsg"
+        class="alert my-2"
+        [class]="color ? 'alert-danger' : 'alert-success'"
+      >
+        {{ userMsg }}
+      </p>
+    </form>
+  </section>
+  

@@ -1,0 +1,174 @@
+<section class="py-5">
+    <div class="container contain" *ngIf="numberOfItems != 0">
+      <div class="row bg-secondary p-4 rounded-2">
+        <div class="col-5 fw-bold text-white">&nbsp; &nbsp; &nbsp; Product</div>
+        <div class="col-2 fw-bold text-white">&nbsp; &nbsp; &nbsp;Price</div>
+        <div class="col-2 fw-bold text-white">&nbsp; &nbsp;Quantity</div>
+        <div class="col-2 fw-bold text-white">&nbsp; &nbsp; &nbsp;Total</div>
+        <div class="col-1 fw-bold text-white">&nbsp; &nbsp; &nbsp;Remove</div>
+      </div>
+      <div
+        class="row p-4 d-flex align-items-center"
+        *ngFor="let item of cartDetails.products"
+      >
+        <div class="col-5 fw-bold">
+          <div class="row d-flex align-items-center">
+            <div class="col-3">
+              <img
+                [src]="item.product.imageCover"
+                [alt]="item.product.title"
+                class="w-100"
+              />
+            </div>
+            <div class="col-8">
+              <h4 class="fw-bold">
+                {{ item.product.title.split(" ").slice(0, 2).join(" ") }}
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-2 fw-bold">
+          <h6 class="fw-bold text-main">
+            {{ item.price | currency : " EGP " }}
+          </h6>
+        </div>
+        <div class="col-2 fw-bold">
+          <div class="d-flex align-items-center">
+            <button
+              class="fw-bold btn bg-secondary border-0 text-white"
+              (click)="updateCount(item.product._id, item.count - 1)"
+              [disabled]="item.count == 1"
+            >
+              -
+            </button>
+            <span class="px-2 h4 fw-bold"> {{ item.count }} </span>
+            <button
+              class="fw-bold btn bg-secondary border-0 text-white"
+              (click)="updateCount(item.product._id, item.count + 1)"
+            >
+              +
+            </button>
+          </div>
+        </div>
+        <div class="col-2 fw-bold">
+          <h6 class="fw-bold text-main">
+            {{ item.price * item.count | currency : " EGP " }}
+          </h6>
+        </div>
+        <div class="col-1 fw-bold">
+          <button
+            class="text-danger btn"
+            (click)="removeCartItem(item.product._id)"
+          >
+            <i class="fa-solid fa-trash ms-4 fa-xl"></i>
+          </button>
+        </div>
+        <hr class="my-2" />
+      </div>
+      <div class="d-flex align-items-center">
+        <button class="btn btn-danger me-3" (click)="clearCart()">
+          Clear Cart
+        </button>
+        <button
+          class="btn btn-success"
+          [routerLink]="['/checkout', cartDetails._id]"
+        >
+          Proceed To Checkout
+        </button>
+      </div>
+    </div>
+    <!--* 992 px   -->
+    <div *ngIf="numberOfItems != 0" class="small d-none">
+      <div
+        class="row p-4 d-flex align-items-center"
+        *ngFor="let item of cartDetails.products"
+      >
+        <div class="col-12 fw-bold text-center">
+          <h4 class="fw-bold">
+            {{ item.product.title.split(" ").slice(0, 2).join(" ") }}
+          </h4>
+          <img
+            [src]="item.product.imageCover"
+            [alt]="item.product.title"
+            class="w-100"
+          />
+        </div>
+        <div class="col-12 fw-bold d-flex justify-content-between">
+          <h6 class="fw-bold text-main">
+            {{ item.price | currency : " EGP " }}
+          </h6>
+  
+          <div class="c fw-bold text-center">
+            <span class="d-flex flex-column">
+              <span>
+                <ng-container
+                  *ngFor="
+                    let _ of generateRatingArray(item.product.ratingsAverage)
+                  "
+                >
+                  <i
+                    class="fa-solid fa-star repeat_here"
+                    style="color: #ffd43b"
+                  ></i>
+                </ng-container>
+              </span>
+              <span class="ps-2"> {{ item.product.ratingsAverage }} </span>
+            </span>
+          </div>
+        </div>
+  
+        <div class="d-flex justify-content-between">
+          <div class="d-flex align-items-center">
+            <button
+              class="fw-bold btn bg-secondary border-0 text-white"
+              (click)="updateCount(item.product._id, item.count - 1)"
+              [disabled]="item.count == 1"
+            >
+              -
+            </button>
+            <span class="px-2 h4 fw-bold"> {{ item.count }} </span>
+            <button
+              class="fw-bold btn bg-secondary border-0 text-white"
+              (click)="updateCount(item.product._id, item.count + 1)"
+            >
+              +
+            </button>
+          </div>
+          <div class="fw-bold">
+            <button
+              class="text-danger btn"
+              (click)="removeCartItem(item.product._id)"
+            >
+              <i class="fa-solid fa-trash ms-4 fa-xl"></i>
+            </button>
+          </div>
+        </div>
+  
+        <hr class="my-2" />
+      </div>
+      <div class="d-flex align-items-center">
+        <button class="btn btn-danger me-3" (click)="clearCart()">
+          Clear Cart
+        </button>
+        <button
+          class="btn btn-success"
+          [routerLink]="['/checkout', cartDetails._id]"
+        >
+          Proceed To Checkout
+        </button>
+      </div>
+    </div>
+  
+    <div
+      *ngIf="numberOfItems == 0"
+      class="container d-flex align-items-center justify-content-center flex-column"
+    >
+      <h3 class="text-main fw-bold">Your Cart Is Empty</h3>
+  
+      <div><img src="./assets/images/empty-cart-illustration-download-in-svg-png-gif-file-formats--bucket-shopping-basket-cuterr-illustrations-pack-people-3020773.webp" class="svg" /></div>
+      <div class="d-flex align-items-baseline flex-column text-center">
+        <button class="btn btn-success" routerLink="/home">Back To Home</button>
+      </div>
+    </div>
+  </section>
+  

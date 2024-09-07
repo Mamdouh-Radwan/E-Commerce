@@ -1,0 +1,15 @@
+@media (max-width: 992px) {
+    .contain {
+      display: none !important;
+    }
+    .tab {
+      display: none !important;
+    }
+    .small {
+      display: block !important;
+    }
+  }
+  .svg {
+    width: 700px;
+  }
+  

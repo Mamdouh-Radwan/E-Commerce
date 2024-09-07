@@ -1,0 +1,19 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+  }
+  
+  .com {
+    padding-top: 60px;
+    min-height: 100vh;
+  }
+  
+  .btn-up {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    z-index: 999;
+  }
+  

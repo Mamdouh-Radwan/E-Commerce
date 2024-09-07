@@ -1,0 +1,53 @@
+<section class="min-vh-100 bg-main-light">
+    <div class="container p-5">
+      <div>
+        <div class="text-center fw-bold text-success h1">
+          Your Payment Details
+        </div>
+      </div>
+      <!-- Check if userOrders is empty -->
+      <div *ngIf="userOrders.length === 0" class="text-center fw-bold mt-5">
+        <h3>You haven't made any purchase yet</h3>
+  
+        <button class="btn btn-outline-success mt-5" routerLink="/home">
+          Make Your First Order
+        </button>
+      </div>
+      <!-- Display userOrders if it's not empty -->
+      <div *ngIf="userOrders.length > 0">
+        <div class="row py-5 border-bottom" *ngFor="let order of userOrders">
+          <div class="col-md-2" *ngFor="let item of order.cartItems">
+            <div>
+              <img [src]="item.product.imageCover" class="w-100 rounded-5" />
+              <div>
+                <h6 class="fw-bold pt-2">
+                  Number of item :
+                  <span class="text-success">{{ item.count }}</span>
+                </h6>
+                <h6 class="fw-bold">
+                  Price of item :
+                  <span class="text-success">{{ item.price }}</span>
+                </h6>
+              </div>
+            </div>
+          </div>
+          <div class="py-2 text-center">
+            <h3>
+              Total price :
+              <span class="fw-bold text-success">
+                {{ order.totalOrderPrice }}
+              </span>
+            </h3>
+            <h3 class="h6 fw-bold">
+              City : <span> {{ order.shippingAddress.city }} </span>
+            </h3>
+            <h3 class="h6 fw-bold">
+              Details : <span> {{ order.shippingAddress.details }} </span>
+            </h3>
+            <h3 class="text-success fw-bold h6">Payment Done</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

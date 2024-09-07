@@ -1,0 +1,114 @@
+.img {
+    object-fit: cover;
+    object-position: center;
+    height: 250px;
+    vertical-align: middle;
+    overflow: clip;
+  }
+  .info {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    top: 30%;
+    right: 0;
+    background-color: rgba(50, 50, 50, 0.2);
+    padding: 30px 10px;
+    border-radius: 5px;
+    transform: translatex(300%);
+    transition: 0.5s;
+  }
+  .product:hover .info {
+    transform: translatex(0%);
+  }
+  .sale {
+    position: absolute;
+    top: 10px;
+    left: 0px;
+  }
+  
+  .number {
+    position: absolute;
+    top: -30px;
+    text-decoration: line-through;
+  }
+  .img2 {
+    position: absolute;
+    transform: translateX(-100%);
+    transition: 0.5s;
+    opacity: 0;
+  }
+  .img1 {
+    transition: 0.5s;
+  }
+  .product:hover .img2 {
+    opacity: 1;
+  }
+  .product:hover .img1 {
+    opacity: 0;
+  }
+  .search {
+    position: absolute;
+    top: 50%;
+    right: 55%;
+    width: 450px;
+  }
+  .se {
+    object-fit: cover;
+    object-position: center;
+    height: 300px;
+    vertical-align: middle;
+    overflow: clip;
+    width: 100%;
+  }
+  .input {
+    padding: 10px;
+    padding-left: 60px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgba(50, 50, 50, 0.7);
+    background-color: transparent;
+    border: solid 2px black;
+    border-radius: 50px;
+  }
+  .form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color: #8b9098;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(132, 139, 149, 0.25);
+  }
+  .ic {
+    position: absolute;
+    top: 33px;
+    left: 15px;
+    font-weight: 700;
+    font-size: 30px;
+  }
+  .input::placeholder {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .dropdown-item {
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  .dropdown-item:hover {
+    color: black !important;
+  }
+  @media (max-width: 992px) {
+    .search {
+      position: relative;
+      top: 50%;
+      right: 0;
+      width: 350px;
+    }
+    .se {
+      display: none;
+    }
+    .lay {
+      display: none !important;
+    }
+  }
+  

@@ -1,0 +1,110 @@
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-info-subtle fixed-top"
+  [ngClass]="{ 'bg-main-light': scrolled }"
+>
+  <div class="container px-5">
+    <a class="navbar-brand" routerLink="/home"
+      ><img src="./assets/images/freshcart-logo.svg" alt=""
+    /></a>
+    <button
+      class="navbar-toggler d-lg-none"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId" #collapsibleNav>
+      <ul class="navbar-nav mx-auto mt-2 mt-lg-0 text-center">
+        <li class="nav-item font-sm" (click)="closeToggler()">
+          <a class="nav-link" routerLinkActive="active-link" routerLink="/home"
+            >Home</a
+          >
+        </li>
+
+        <li class="nav-item font-sm" (click)="closeToggler()">
+          <a
+            class="nav-link"
+            routerLinkActive="active-link"
+            routerLink="/products"
+            >Product</a
+          >
+        </li>
+        <li class="nav-item font-sm" (click)="closeToggler()">
+          <a
+            class="nav-link"
+            routerLinkActive="active-link"
+            routerLink="/category"
+            >Category</a
+          >
+        </li>
+        <li class="nav-item font-sm" (click)="closeToggler()">
+          <a
+            class="nav-link"
+            routerLinkActive="active-link"
+            routerLink="/brands"
+            >Brands</a
+          >
+        </li>
+        <li class="nav-item font-sm" (click)="closeToggler()">
+          <a
+            class="nav-link"
+            routerLinkActive="active-link"
+            routerLink="/allorders"
+            >All Orders</a
+          >
+        </li>
+      </ul>
+      <ul
+        class="navbar-nav ms-auto mt-2 mt-lg-0 text-center align-items-center iconsss"
+      >
+        <li class="position-relative px-2" (click)="closeToggler()">
+          <i
+            class="fa-solid fa-heart fa-xl"
+            routerLink="/wishlist"
+            style="color: #d60707"
+            [class.shaking-heart]="shake == true"
+          ></i>
+          <span class="badge bg-main"> {{ wishlistNum }} </span>
+        </li>
+
+        <li class="px-2 position-relative" (click)="closeToggler()">
+          <i
+            class="fa-solid fa-cart-shopping fa-xl"
+            style="color: #7c7e83"
+            routerLink="/cart"
+            [class.shaking-heart]="shakeCart == true"
+          ></i>
+          <span class="badge bg-main"> {{ navCartNum }} </span>
+        </li>
+
+        <li class="nav-item dropdown ms-3 drop">
+          <span
+            class="nav-link"
+            data-bs-toggle="dropdown"
+            role="button"
+            aria-expanded="false"
+          >
+            <span>
+              <img [src]="photo" class="photo" />
+            </span>
+          </span>
+          <ul class="dropdown-menu">
+            <li routerLink="/profile">
+              <span (click)="closeToggler()">Profile</span>
+            </li>
+            <li (click)="closeToggler()" routerLink="/setting">
+              <span>Setting</span>
+            </li>
+            <li (click)="logoutUser()" (click)="closeToggler()">
+              <span>Log out</span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

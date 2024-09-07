@@ -1,0 +1,75 @@
+<section
+  class="min-vh-100 d-flex justify-content-center align-items-center container"
+>
+  <form
+    [formGroup]="checkOut"
+    (ngSubmit)="handleForm()"
+    class="w-100 bg-main-light p-5 rounded-3"
+  >
+    <div class="py-3">
+      <label for="details">Details</label>
+      <input
+        type="text"
+        id="details"
+        class="form-control"
+        formControlName="details"
+      />
+    </div>
+    <div
+      class="text-danger"
+      *ngIf="
+        (checkOut.get('details')?.touched ||
+          checkOut.get('details')?.value != '') &&
+        checkOut.get('details')?.errors
+      "
+    >
+      <p class="opacity-75">Details is required</p>
+    </div>
+    <div class="py-3">
+      <label for="phone">Phone</label>
+      <input
+        type="tel"
+        id="phone"
+        class="form-control"
+        formControlName="phone"
+      />
+    </div>
+    <div
+      class="text-danger"
+      *ngIf="
+        (checkOut.get('phone')?.touched ||
+          checkOut.get('phone')?.value != '') &&
+        checkOut.get('phone')?.errors
+      "
+    >
+      <p class="opacity-75" *ngIf="checkOut.get('phone')?.getError('required')">
+        Phone is required
+      </p>
+      <p class="opacity-75" *ngIf="checkOut.get('phone')?.getError('pattern')">
+        Invalid Number
+      </p>
+    </div>
+
+    <div class="py-3">
+      <label for="city">City</label>
+      <input
+        type="text"
+        id="city"
+        class="form-control"
+        formControlName="city"
+      />
+    </div>
+    <div
+      class="text-danger"
+      *ngIf="
+        (checkOut.get('city')?.touched || checkOut.get('city')?.value != '') &&
+        checkOut.get('city')?.errors
+      "
+    >
+      <p class="opacity-75">City is required</p>
+    </div>
+    <div>
+      <button class="btn-main" [disabled]="checkOut.invalid">Submit</button>
+    </div>
+  </form>
+</section>
