@@ -50,7 +50,7 @@ export class CartService {
   //* check out
   checkOut(id: string, userData: object): Observable<any> {
     const encodedUrl = encodeURIComponent(
-      'https://mohamed0ahmed.github.io/Fresh-Cart/#'
+      'https://mamdouh-radwan.github.io/startFramework/'
     );
     return this._HttpClient.post(
       `${environment.baseUrl}/api/v1/orders/checkout-session/${id}?url=${encodedUrl}`,

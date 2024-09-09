@@ -1,8 +1,15 @@
 {
   "routes": [
-    "/about",
-    "/contact",
+    "/",
+    "/allorders",
+    "/brands",
+    "/cart",
+    "/category",
+    "/Forgetpassword",
     "/home",
-    "/portfolio"
+    "/login",
+    "/products",
+    "/register",
+    "/wishlist"
   ]
 }

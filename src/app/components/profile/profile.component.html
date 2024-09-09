@@ -1,0 +1,86 @@
+<section class="container d-flex align-items-center justify-content-center">
+    <div class="contain d-flex flex-column">
+      <div class="up">
+        <h2 class="text-white fw-bold pro">Profile</h2>
+      </div>
+      <div class="down position-relative">
+        <div class="box">
+          <!--* First -->
+          <div class="border-bottom pt-4">
+            <img [src]="photo" class="photo" />
+            <div class="d-flex justify-content-between p-3 py-4">
+              <span (click)="remove()">
+                <i class="fa-solid fa-trash fa-xl" style="color: #000000"></i>
+              </span>
+              <span (click)="onUploadClicked()">
+                <i
+                  class="fa-solid fa-pen-to-square fa-xl upload"
+                  style="color: #000000"
+                >
+                  <input
+                    type="file"
+                    (change)="onFileSelected($event)"
+                    style="display: none"
+                    #fileInput
+                /></i>
+              </span>
+            </div>
+            <div class="text-center pt-4">
+              <p class="text-danger" *ngIf="message">{{ message }}</p>
+              <h3 class="fw-bold h4">{{ userName }}</h3>
+              <h3 class="h6 text-muted">{{ userEmail }}</h3>
+            </div>
+          </div>
+          <!--* Second -->
+          <div>
+            <div class="d-flex justify-content-between sett" routerLink="/cart">
+              <span class="d-flex align-items-center">
+                <i class="fa-solid fa-cart-shopping" style="color: #4c4e52"></i>
+                <p class="text-secondary fw-bold px-2">My Cart</p></span
+              >
+              <span
+                ><i class="fa-solid fa-arrow-right" style="color: #505153"></i
+              ></span>
+            </div>
+            <div
+              class="d-flex justify-content-between sett"
+              routerLink="/wishlist"
+            >
+              <span class="d-flex align-items-center">
+                <i class="fa-solid fa-heart" style="color: #4c4e52"></i>
+                <p class="text-secondary fw-bold px-2">My Wishlist</p></span
+              >
+              <span
+                ><i class="fa-solid fa-arrow-right" style="color: #505153"></i
+              ></span>
+            </div>
+            <div class="d-flex justify-content-between sett" routerLink="/setting">
+              <span class="d-flex align-items-center">
+                <i class="fa-solid fa-gear" style="color: #4c4e52"></i>
+                <p class="text-secondary fw-bold px-2">Settings</p></span
+              >
+              <span
+                ><i class="fa-solid fa-arrow-right" style="color: #505153"></i
+              ></span>
+            </div>
+            <div
+              class="d-flex justify-content-between sett"
+              (click)="logoutUser()"
+            >
+              <span class="d-flex align-items-center">
+                <i
+                  class="fa-solid fa-arrow-right-from-bracket"
+                  style="color: #57595c"
+                ></i>
+                <p class="text-secondary fw-bold px-2">Log Out</p></span
+              >
+              <span
+                ><i class="fa-solid fa-arrow-right" style="color: #505153"></i
+              ></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

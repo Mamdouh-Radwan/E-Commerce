@@ -1,0 +1,13 @@
+.photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 120px;
+    object-fit: cover;
+    object-position: center;
+    vertical-align: middle;
+    overflow: clip;
+  }
+  .contain {
+    box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.3);
+    border-radius:10px;
+  }

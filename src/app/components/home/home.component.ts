@@ -10,11 +10,12 @@ import { DecimalPipe, NgFor, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { SearchPipe } from '../../core/pipes/search.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MainSliderComponent } from "../main-slider/main-slider.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FormsModule,NgIf,NgFor,RouterLink,SearchPipe,NgxPaginationModule,DecimalPipe],
+  imports: [FormsModule, NgIf, NgFor, RouterLink, SearchPipe, NgxPaginationModule, DecimalPipe, MainSliderComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

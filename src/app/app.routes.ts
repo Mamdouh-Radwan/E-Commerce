@@ -15,6 +15,8 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { DetailsComponent } from './components/details/details.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { ForgetPassComponent } from './components/forget-pass/forget-pass.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 export const routes: Routes = [
   //*########## un user
@@ -44,6 +46,8 @@ export const routes: Routes = [
       { path: 'brands', component: BrandsComponent, title: 'Brands' },
       { path: 'allorders', component: AllOrdersComponent, title: 'All-orders' },
       { path: 'details/:id', component: DetailsComponent, title: 'Details' },
+      // { path: 'setting', component: SettingsComponent, title: 'Setting' },
+      // { path: 'profile', component: ProfileComponent, title: 'Profile' },
       { path: 'wishlist', component: WishlistComponent, title: 'Wish List' },
     ],
   },
